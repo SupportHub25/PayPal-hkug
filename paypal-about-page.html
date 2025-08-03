@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayPal - About Us | Powered Payments</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #0070ba, #1e88e5, #1976d2);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .paypal-logo {
+            width: 120px;
+            height: 60px;
+            margin: 0 auto 40px;
+            object-fit: contain;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            background: white;
+            color: #0070ba;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .section {
+            padding: 80px 20px;
+        }
+
+        .section-alt {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .card-description {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .global-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .global-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 60px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .security-image {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            background: #0070ba;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .testimonial-company {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .stars {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .star {
+            color: #ffc107;
+            margin-right: 2px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 20px 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-badges {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .icon-large {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <img src="https://images.unsplash.com/photo-1641350625112-3b1d73c71418?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxwYXlwYWx8ZW58MHx8fHwxNzU0MTg1MDI4fDA&ixlib=rb-4.1.0&q=85" 
+                 alt="PayPal Logo" class="paypal-logo">
+            <h1 class="hero-title" id="heroTitle">PayPal. Powered Payments.</h1>
+            <p class="hero-subtitle" id="heroSubtitle">
+                Empowering millions of people and businesses worldwide to send, receive, and manage money safely and securely.
+            </p>
+            <a href="#services" class="cta-button">
+                <span id="learnMore">Learn More</span>
+                <svg class="icon" style="margin-left: 8px;" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Services for Individuals -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="animate-on-scroll">
+                <h2 class="section-title" id="individualServicesTitle">Services for Individuals</h2>
+                <p class="section-subtitle">
+                    Everything you need to send, receive, and manage your money with confidence.
+                </p>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg class="icon-large" style="color: #0070ba;" viewBox="0 0 24 24">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="m22 21-3-3m0 0a2 2 0 0 0 0-4 2 2 0 0 0 0 4"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title" id="sendTitle">Send</h3>
+                        <p class="card-description">
+                            Send money to friends and family quickly and securely, whether they're across town or around the world.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg class="icon-large" style="color: #0070ba;" viewBox="0 0 24 24">
+                                <rect width="20" height="14" x="2" y="5" rx="2"/>
+                                <path d="m2 10 9 5 9-5"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title" id="receiveTitle">Receive</h3>
+                        <p class="card-description">
+                            Get paid fast with just an email address or phone number. No need to share your financial details.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg class="icon-large" style="color: #0070ba;" viewBox="0 0 24 24">
+                                <rect width="7" height="18" x="3" y="3" rx="1"/>
+                                <rect width="7" height="5" x="14" y="3" rx="1"/>
+                                <rect width="4" height="6" x="14" y="12" rx="1"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title" id="shopTitle">Shop</h3>
+                        <p class="card-description">
+                            Shop confidently online and in-store with PayPal's secure payment system and buyer protection.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services for Businesses -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="animate-on-scroll">
+                <h2 class="section-title" id="businessServicesTitle">Services for Businesses</h2>
+                <p class="section-subtitle">
+                    Powerful tools and solutions to help your business grow and succeed.
+                </p>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg class="icon-large" style="color: #0070ba;" viewBox="0 0 24 24">
+                                <path d="M2 20h20"/>
+                                <path d="M4 20V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14"/>
+                                <path d="M9 6h6v2H9V6z"/>
+                                <path d="M9 10h6v2H9v-2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title" id="checkoutTitle">Checkout</h3>
+                        <p class="card-description">
+                            Provide customers with a smooth, secure checkout experience that builds trust and increases conversions.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg class="icon-large" style="color: #0070ba;" viewBox="0 0 24 24">
+                                <path d="M3 3v18h18"/>
+                                <path d="m7 14 4-4 4 4 6-6"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title" id="invoicingTitle">Invoicing</h3>
+                        <p class="card-description">
+                            Create and send professional invoices, track payments, and get paid faster with automated reminders.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg class="icon-large" style="color: #0070ba;" viewBox="0 0 24 24">
+                                <path d="M9 12h6"/>
+                                <path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18"/>
+                                <path d="M12 8v4l3 3"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title" id="fraudTitle">Fraud Protection</h3>
+                        <p class="card-description">
+                            Advanced security technology and round-the-clock monitoring help protect your business from fraud.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Reach -->
+    <section class="section">
+        <div class="container">
+            <div class="animate-on-scroll">
+                <h2 class="section-title" id="globalReachTitle">Global Reach</h2>
+                <p class="section-subtitle">
+                    Connecting people and businesses across the globe with secure, reliable payment solutions.
+                </p>
+                
+                <div style="text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1571867424488-4565932edb41?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwzfHxkaWdpdGFsJTIwcGF5bWVudHN8ZW58MHx8fHwxNzU0MTg1MDM0fDA&ixlib=rb-4.1.0&q=85" 
+                         alt="Global Connectivity" class="global-image">
+                </div>
+
+                <div class="global-stats">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <svg class="icon-large" style="color: #0070ba;" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                                <path d="M2 12h20"/>
+                            </svg>
+                        </div>
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label" id="countriesLabel">Countries & Regions</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <svg class="icon-large" style="color: #0070ba;" viewBox="0 0 24 24">
+                                <rect width="20" height="14" x="2" y="5" rx="2"/>
+                                <path d="m2 10 9 5 9-5"/>
+                            </svg>
+                        </div>
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label" id="currenciesLabel">Currencies</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <svg class="icon-large" style="color: #0070ba;" viewBox="0 0 24 24">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="m22 21-3-3m0 0a2 2 0 0 0 0-4 2 2 0 0 0 0 4"/>
+                            </svg>
+                        </div>
+                        <div class="stat-number">56+</div>
+                        <div class="stat-label" id="languagesLabel">Languages</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Features -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="animate-on-scroll">
+                <h2 class="section-title" id="securityTitle">Security Features</h2>
+                <p class="section-subtitle">
+                    Your security is our top priority. We use advanced technology to keep your money and information safe.
+                </p>
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg class="icon-large" style="color: #28a745;" viewBox="0 0 24 24">
+                                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                                <path d="m7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title" id="encryptionTitle">256-bit SSL Encryption</h3>
+                        <p class="card-description">
+                            Your financial information is protected with industry-leading encryption technology.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg class="icon-large" style="color: #28a745;" viewBox="0 0 24 24">
+                                <polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title" id="monitoringTitle">24/7 Fraud Monitoring</h3>
+                        <p class="card-description">
+                            Advanced algorithms and dedicated security teams monitor transactions around the clock.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg class="icon-large" style="color: #28a745;" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4"/>
+                                <circle cx="12" cy="12" r="9"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title" id="protectionTitle">Buyer Protection</h3>
+                        <p class="card-description">
+                            Get refunded for eligible unauthorized transactions and items that don't match their description.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <img src="https://images.unsplash.com/photo-1599050751795-6cdaafbc2319?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHw0fHxkaWdpdGFsJTIwcGF5bWVudHN8ZW58MHx8fHwxNzU0MTg1MDM0fDA&ixlib=rb-4.1.0&q=85" 
+                         alt="Security Features" class="security-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="container">
+            <div class="animate-on-scroll">
+                <h2 class="section-title" id="testimonialsTitle">What Our Customers Say</h2>
+                <p class="section-subtitle">
+                    Don't just take our word for it. Here's what our customers have to say about their PayPal experience.
+                </p>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="avatar">SJ</div>
+                            <div>
+                                <div class="testimonial-name">Sarah Johnson</div>
+                                <div class="testimonial-company">E-commerce Entrepreneur</div>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-text">
+                            "PayPal has been instrumental in growing my online business. The security and ease of use give both me and my customers confidence in every transaction."
+                        </p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="avatar">MR</div>
+                            <div>
+                                <div class="testimonial-name">Miguel Rodriguez</div>
+                                <div class="testimonial-company">Freelance Designer</div>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-text">
+                            "As a freelancer working with international clients, PayPal makes it incredibly easy to receive payments from anywhere in the world. The invoicing feature saves me so much time."
+                        </p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="avatar">EC</div>
+                            <div>
+                                <div class="testimonial-name">Emma Chen</div>
+                                <div class="testimonial-company">Small Business Owner</div>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-text">
+                            "The fraud protection and monitoring give me peace of mind. I've never had to worry about security issues, and my customers trust the PayPal checkout experience."
+                        </p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="avatar">DT</div>
+                            <div>
+                                <div class="testimonial-name">David Thompson</div>
+                                <div class="testimonial-company">Online Retailer</div>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-text">
+                            "PayPal's checkout integration increased our conversion rates significantly. Customers love the convenience and security of paying with their PayPal account."
+                        </p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="avatar">LP</div>
+                            <div>
+                                <div class="testimonial-name">Lisa Park</div>
+                                <div class="testimonial-company">Digital Marketer</div>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-text">
+                            "I use PayPal for everything - sending money to family, paying for services, and receiving client payments. It's become an essential part of my financial life."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#" id="aboutLink">About</a></li>
+                        <li><a href="#" id="careersLink">Careers</a></li>
+                        <li><a href="#">Newsroom</a></li>
+                        <li><a href="#">Investor Relations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">Personal</a></li>
+                        <li><a href="#">Business</a></li>
+                        <li><a href="#">Developer</a></li>
+                        <li><a href="#">Enterprise</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#" id="developersLink">Developers</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#" id="privacyLink">Privacy</a></li>
+                        <li><a href="#" id="termsLink">Terms</a></li>
+                        <li><a href="#">Fees</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>
+                    <p style="color: #bdc3c7;">© 2025 PayPal Inc. All rights reserved.</p>
+                </div>
+                <div class="footer-badges">
+                    <span class="badge">Available in 200+ markets</span>
+                    <span class="badge">Trusted by millions</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Begin of Chaport Live Chat code -->
+    <script type="text/javascript">
+        (function(w,d,v3){
+            w.chaportConfig = {
+                appId : '685163ed43fb75c01157101d'
+            };
+
+            if(w.chaport)return;v3=w.chaport={};v3._q=[];v3._l={};v3.q=function(){v3._q.push(arguments)};v3.on=function(e,fn){if(!v3._l[e])v3._l[e]=[];v3._l[e].push(fn)};var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://app.chaport.com/javascripts/insert.js';var ss=d.getElementsByTagName('script')[0];ss.parentNode.insertBefore(s,ss)
+        })(window, document);
+    </script>
+    <!-- End of Chaport Live Chat code -->
+
+    <script>
+        // Auto-translation functionality
+        const translations = {
+            en: {
+                heroTitle: "PayPal. Powered Payments.",
+                heroSubtitle: "Empowering millions of people and businesses worldwide to send, receive, and manage money safely and securely.",
+                individualServicesTitle: "Services for Individuals",
+                businessServicesTitle: "Services for Businesses",
+                globalReachTitle: "Global Reach",
+                securityTitle: "Security Features",
+                testimonialsTitle: "What Our Customers Say",
+                sendTitle: "Send",
+                receiveTitle: "Receive",
+                shopTitle: "Shop",
+                checkoutTitle: "Checkout",
+                invoicingTitle: "Invoicing",
+                fraudTitle: "Fraud Protection",
+                encryptionTitle: "256-bit SSL Encryption",
+                monitoringTitle: "24/7 Fraud Monitoring",
+                protectionTitle: "Buyer Protection",
+                countriesLabel: "Countries & Regions",
+                currenciesLabel: "Currencies",
+                languagesLabel: "Languages",
+                aboutLink: "About",
+                careersLink: "Careers",
+                developersLink: "Developers",
+                privacyLink: "Privacy",
+                termsLink: "Terms",
+                learnMore: "Learn More"
+            },
+            es: {
+                heroTitle: "PayPal. Pagos Potenciados.",
+                heroSubtitle: "Empoderando a millones de personas y empresas en todo el mundo para enviar, recibir y administrar dinero de manera segura.",
+                individualServicesTitle: "Servicios para Individuos",
+                businessServicesTitle: "Servicios para Empresas",
+                globalReachTitle: "Alcance Global",
+                securityTitle: "Características de Seguridad",
+                testimonialsTitle: "Lo que Dicen Nuestros Clientes",
+                sendTitle: "Enviar",
+                receiveTitle: "Recibir",
+                shopTitle: "Comprar",
+                checkoutTitle: "Pagar",
+                invoicingTitle: "Facturación",
+                fraudTitle: "Protección contra Fraudes",
+                encryptionTitle: "Encriptación SSL de 256 bits",
+                monitoringTitle: "Monitoreo de Fraudes 24/7",
+                protectionTitle: "Protección al Comprador",
+                countriesLabel: "Países y Regiones",
+                currenciesLabel: "Monedas",
+                languagesLabel: "Idiomas",
+                aboutLink: "Acerca de",
+                careersLink: "Carreras",
+                developersLink: "Desarrolladores",
+                privacyLink: "Privacidad",
+                termsLink: "Términos",
+                learnMore: "Aprende Más"
+            },
+            fr: {
+                heroTitle: "PayPal. Paiements Alimentés.",
+                heroSubtitle: "Permettre à des millions de personnes et d'entreprises dans le monde d'envoyer, de recevoir et de gérer de l'argent en toute sécurité.",
+                individualServicesTitle: "Services pour les Particuliers",
+                businessServicesTitle: "Services pour les Entreprises",
+                globalReachTitle: "Portée Mondiale",
+                securityTitle: "Fonctionnalités de Sécurité",
+                testimonialsTitle: "Ce que Disent Nos Clients",
+                sendTitle: "Envoyer",
+                receiveTitle: "Recevoir",
+                shopTitle: "Acheter",
+                checkoutTitle: "Commander",
+                invoicingTitle: "Facturation",
+                fraudTitle: "Protection contre la Fraude",
+                encryptionTitle: "Chiffrement SSL 256 bits",
+                monitoringTitle: "Surveillance des Fraudes 24/7",
+                protectionTitle: "Protection de l'Acheteur",
+                countriesLabel: "Pays et Régions",
+                currenciesLabel: "Devises",
+                languagesLabel: "Langues",
+                aboutLink: "À propos",
+                careersLink: "Carrières",
+                developersLink: "Développeurs",
+                privacyLink: "Confidentialité",
+                termsLink: "Conditions",
+                learnMore: "En Savoir Plus"
+            }
+        };
+
+        // Auto-detect language and translate
+        function initTranslation() {
+            const userLang = navigator.language || navigator.userLanguage;
+            const langCode = userLang.split('-')[0];
+            const currentTranslations = translations[langCode] || translations.en;
+            
+            // Apply translations
+            Object.keys(currentTranslations).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = currentTranslations[key];
+                }
+            });
+        }
+
+        // Intersection Observer for scroll animations
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        function initSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initTranslation();
+            initScrollAnimations();
+            initSmoothScrolling();
+        });
+    </script>
+</body>
+</html>
