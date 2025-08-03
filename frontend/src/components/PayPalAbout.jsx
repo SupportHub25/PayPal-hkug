@@ -22,7 +22,7 @@ const PayPalAbout = () => {
   const [currentLang, setCurrentLang] = useState('en');
   const [isVisible, setIsVisible] = useState({});
 
-  // Auto-translate functionality
+  /is/ Auto-translate functionality
   useEffect(() => {
     const userLang = navigator.language || navigator.userLanguage;
     const langCode = userLang.split('-')[0];
