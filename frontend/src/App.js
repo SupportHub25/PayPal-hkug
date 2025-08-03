@@ -1,50 +1,47 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
-  return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
+import PayPalAbout from "./components/PayPalAbout";
 
 function App() {
+  // Add Chaport live chat
+  useEffect(() => {
+    // Begin of Chaport Live Chat code
+    window.chaportConfig = {
+      appId: '685163ed43fb75c01157101d'
+    };
+
+    if (window.chaport) return;
+    
+    const chaport = {
+      _q: [],
+      _l: {},
+      q: function() {
+        chaport._q.push(arguments);
+      },
+      on: function(e, fn) {
+        if (!chaport._l[e]) chaport._l[e] = [];
+        chaport._l[e].push(fn);
+      }
+    };
+    
+    window.chaport = chaport;
+
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.src = 'https://app.chaport.com/javascripts/insert.js';
+    
+    const firstScript = document.getElementsByTagName('script')[0];
+    firstScript.parentNode.insertBefore(script, firstScript);
+    // End of Chaport Live Chat code
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
+          <Route path="/" element={<PayPalAbout />} />
         </Routes>
       </BrowserRouter>
     </div>
